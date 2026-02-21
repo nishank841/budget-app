@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: "{{ values.name }}"
+  name: "{{ name }}"
   description: Python service created via Backstage
   annotations:
-    github.com/project-slug: "nishank841/{{ values.name }}"
+    github.com/project-slug: "nishank841/{{ name }}"
 spec:
   type: service
   lifecycle: experimental
