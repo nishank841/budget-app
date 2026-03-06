@@ -3,7 +3,13 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   annotations:
-    backstage.io/documentation-url: ${{ values.confluenceUrl }}
+    # Remove the source-location and techdocs-ref none
+    # Let the GitHub integration handle the 'View Source' button automatically
+  links:
+    - url: ${{ values.confluenceUrl }}
+      title: "Documentation"
+      icon: docs
 spec:
   type: service
+  lifecycle: experimental
   owner: group:default/guests
