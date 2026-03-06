@@ -3,9 +3,13 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   annotations:
-    # This line places the link beside "VIEW SOURCE" in the About card
-    backstage.io/view-url: ${{ values.confluenceUrl | dump }}  
-    # STOPS TechDocs from overriding the button or showing a 404
+    # 1. This is an alternative 'magic' key that often overrides the TechDocs button
+    backstage.io/source-location: url:${{ values.confluenceUrl | dump }}
+    
+    # 2. Keep this to help the 'About' card find a primary URL
+    backstage.io/view-url: ${{ values.confluenceUrl | dump }}
+    
+    # 3. Explicitly kill the TechDocs button to remove the 404 path
     backstage.io/techdocs-ref: none
   links:
     - url: ${{ values.confluenceUrl }}
