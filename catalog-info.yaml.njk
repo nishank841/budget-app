@@ -5,9 +5,6 @@ metadata:
   annotations:
     # This is what the code above uses to know where to redirect
     backstage.io/view-url: ${{ values.confluenceUrl | dump }}
-    
-    # We add this just to make sure the "Docs" tab is NOT greyed out
-    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   lifecycle: experimental
