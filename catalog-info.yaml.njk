@@ -3,7 +3,8 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   annotations:
-    backstage.io/techdocs-ref: confluence:${{ values.confluenceUrl }}
+    # This line places the link beside "VIEW SOURCE" in the About card
+    backstage.io/view-url: ${{ values.confluenceUrl | dump }}  
   links:
     - url: ${{ values.confluenceUrl }}
       title: "Documentation"
@@ -11,4 +12,4 @@ metadata:
 spec:
   type: service
   lifecycle: experimental
-  owner: user:guest
+  owner: group:default/guests
