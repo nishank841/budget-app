@@ -3,7 +3,8 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   annotations:
-    backstage.io/techdocs-ref: url:${{ values.confluenceUrl }}
+    backstage.io/description: "Service description here"
+    backstage.io/documentation-url: ${{ values.confluenceUrl }}
 spec:
   type: service
   owner: group:default/guests
