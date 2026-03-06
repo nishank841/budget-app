@@ -2,10 +2,10 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.name }}
-  description: Python service created via Backstage
-  annotations:
-    github.com/project-slug: nishank841/${{ values.name }}
+  links:
+    - url: "${{ values.confluenceUrl }}"
+      title: "Documentation"
+      icon: docs
 spec:
   type: service
-  lifecycle: experimental
-  owner: user:guest
+  owner: ${{ values.owner }}
