@@ -2,13 +2,12 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.name }}
+  annotations:
+    backstage.io/view-url: ${{ values.confluenceUrl }}
   links:
-    - url: "${{ values.confluenceUrl }}"
+    - url: ${{ values.confluenceUrl }}
       title: "Documentation"
       icon: docs
-  annotations:
-    # This specifically tells the TechDocs button where to go
-    backstage.io/techdocs-ref: url:${{ values.confluenceUrl }}
 spec:
   type: service
   lifecycle: experimental
