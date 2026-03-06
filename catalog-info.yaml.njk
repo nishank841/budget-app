@@ -6,6 +6,9 @@ metadata:
     - url: "${{ values.confluenceUrl }}"
       title: "Documentation"
       icon: docs
+  annotations:
+    # This specifically tells the TechDocs button where to go
+    backstage.io/techdocs-ref: url:${{ values.confluenceUrl }}
 spec:
   type: service
   lifecycle: experimental
