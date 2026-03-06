@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   annotations:
-    backstage.io/view-url: ${{ values.confluenceUrl }}
+    backstage.io/techdocs-ref: confluence:${{ values.confluenceUrl }}
   links:
     - url: ${{ values.confluenceUrl }}
       title: "Documentation"
