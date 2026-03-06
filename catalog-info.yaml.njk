@@ -5,6 +5,8 @@ metadata:
   annotations:
     # This line places the link beside "VIEW SOURCE" in the About card
     backstage.io/view-url: ${{ values.confluenceUrl | dump }}  
+    # STOPS TechDocs from overriding the button or showing a 404
+    backstage.io/techdocs-ref: none
   links:
     - url: ${{ values.confluenceUrl }}
       title: "Documentation"
