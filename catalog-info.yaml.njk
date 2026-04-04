@@ -14,3 +14,24 @@ spec:
   type: service
   lifecycle: experimental
   owner: group:default/nishankadonikeni
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ${{ values.name }}-helm
+spec:
+  type: helm-chart
+  owner: group:default/nishankadonikeni
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ${{ values.name }}-argocd
+spec:
+  type: argocd-app
+  owner: group:default/nishankadonikeni
+
+  dependsOn:
+    - resource:default/${{ values.name }}-helm
