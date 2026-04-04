@@ -1,24 +1,36 @@
-name: Build Docker Image
+name: Build and Push to GHCR
 
 on:
   push:
     branches:
       - main
-  pull_request:
+
+env:
+  IMAGE_NAME: budget-app
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
-    env:
-      PROJECT_NAME: ${{ values.name }}
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Echo Project Name
-        run: echo "Project name from Backstage is $PROJECT_NAME"
+      - name: Log in to GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Set image tag
+        run: echo "IMAGE=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME:latest" >> $GITHUB_ENV
 
       - name: Build Docker image
-        run: docker build -t $PROJECT_NAME:latest .
+        run: docker build -t $IMAGE .
+
+      - name: Tag Docker image
+        run: docker tag $IMAGE $IMAGE
+
+      - name: Push Docker image
+        run: docker push $IMAGE
