@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{ values.name | dump }}
+  name: ${{ values.name }}
   annotations:
     # This is what the code above uses to know where to redirect
     backstage.io/view-url: ${{ values.confluenceUrl | dump }}
