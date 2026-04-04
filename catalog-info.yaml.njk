@@ -10,28 +10,12 @@ metadata:
     - url: ${{ values.confluenceUrl | dump }}
       title: Confluence Docs
       icon: docs # This adds a nice document icon next to the link
+
+    - url: https://us5.datadoghq.com/dashboard/lists?p=1
+      title: Datadog Dashboard
+      icon: dashboard
 spec:
   type: service
   lifecycle: experimental
   owner: group:default/nishankadonikeni
 
----
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: ${{ values.name }}-helm
-spec:
-  type: helm-chart
-  owner: group:default/nishankadonikeni
-
----
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: ${{ values.name }}-argocd
-spec:
-  type: argocd-app
-  owner: group:default/nishankadonikeni
-
-  dependsOn:
-    - resource:default/${{ values.name }}-helm
