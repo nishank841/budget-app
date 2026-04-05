@@ -14,6 +14,19 @@ metadata:
     - url: https://us5.datadoghq.com/dashboard/lists?p=1
       title: Datadog Dashboard
       icon: dashboard
+
+    - url: https://localhost:8080/applications/argocd/${{ values.name }}?view=tree&resource=
+      title: ArgoCD Dashboard
+      icon: dashboard
+
+    - url: https://github.com/nishank841/Helm-charts/blob/main/apps/${{ values.name }}/values.yaml
+      title: Helm Values
+      icon: code
+
+    - url: https://github.com/nishank841/terraform/blob/main/apps/${{ values.name }}.tfvars
+      title: Terraform Values
+      icon: code
+
 spec:
   type: service
   lifecycle: experimental
